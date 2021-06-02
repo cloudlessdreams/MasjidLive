@@ -25,14 +25,16 @@ SECRET_KEY = 'django-insecure-cx5xw3(@_fsbs@=7d#yf3*hh9dh+8y3l=ptath&u@-ixoy+)25
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'Masjids.apps.MasjidsConfig',
-    
+    'accounts.apps.AccountsConfig',
+    'rest_framework',
+    'knox',    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+    ],
+
+    'DEFAULT_PERMISSION_CLASSES': [
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

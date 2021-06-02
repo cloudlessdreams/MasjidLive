@@ -20,3 +20,5 @@ class Masjid(models.Model):
 		return self.name
 
 
+
+
